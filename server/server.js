@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== "production") {
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 const server = http.createServer(app);
 
