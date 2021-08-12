@@ -7,3 +7,4 @@ export { default as NavButton } from './NavButton';
 export { default as PageBanner } from './PageBanner';
 export { default as PlayListFunctions } from './PlayListFunctions';
 export { default as PromptButton } from './PromptButton';
+export { default as PageTitle } from './PageTitle';
