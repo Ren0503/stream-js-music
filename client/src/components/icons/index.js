@@ -1,3 +1,6 @@
+import React from 'react';
+/* eslint-disable import/first */
+
 import HomeIcon from './HomeIcon';
 import SearchIcon from './SearchIcon';
 import LibraryIcon from './LibraryIcon';
@@ -19,8 +22,6 @@ import RepeatIcon from './RepeatIcon';
 import SpeakerIcon from './SpeakerIcon';
 import VolumeIcon from './VolumeIcon';
 import PauseIcon from './PauseIcon';
-
-import React from 'react';
 
 export default function Icon(props) {
     switch (props.name) {

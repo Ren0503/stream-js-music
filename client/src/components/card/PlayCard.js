@@ -5,6 +5,7 @@ import putWithToken from 'services/putWithToken';
 import { LoginContext, MessageContext, PlayContext, TokenContext } from 'context';
 import CardInfo from './CardInfo';
 import CardDisplay from './CardDisplay';
+import Icon from 'components/icons';
 
 const PlayCard = React.forwardRef(({ info, type }, ref) => {
     const history = useHistory();

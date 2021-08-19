@@ -33,7 +33,7 @@ export const UserInfo = () => {
     const [open, setOpen] = useState(false);
     const user = useContext(UserContext);
 
-    const { image, display_name, id } = user;
+    const { images, display_name, id } = user;
 
     const toggleOpen = () => {
         setOpen(open => !open);

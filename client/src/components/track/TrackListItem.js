@@ -1,6 +1,7 @@
 import { PlayContext } from 'context';
 import React, { useContext } from 'react';
 import msTimeFormat from 'utils/timeFormat';
+import Icon from 'components/icons';
 
 const simplyStyle = {
     display: "flex",
@@ -9,7 +10,7 @@ const simplyStyle = {
 };
 
 const TrackListItem = React.forwardRef(({ track, styleName, highlight, playContextTrack }, ref) => {
-    const { album, artists, styleName, explicit, duration_ms, uri } = track;
+    const { album, artists, name, explicit, duration_ms, uri } = track;
     const updatePlayer = useContext(PlayContext);
 
     let thumbNail;

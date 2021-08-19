@@ -9,6 +9,6 @@ const ArtistRowGrid = ({ list }) => {
             )}
         </div>
     );
-};s
+};
 
 export default ArtistRowGrid
