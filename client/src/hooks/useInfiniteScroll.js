@@ -6,8 +6,7 @@ function useInfiniteScroll(setList) {
 
     const observer = useRef();
     const lastRef = useCallback(node => {
-        if (observer.current)
-            observer.current.disconnect();
+        if (observer.current) observer.current.disconnect()
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting && next) {
                 const [, makeRequest] = makeAxiosRequest(next);
@@ -32,7 +31,8 @@ function useInfiniteScroll(setList) {
                     .catch(error => console.log(error));
             }
         }, { threshold: 0.75 });
-        if (node) observer.current.observer(node);
+        if (node) observer.current.observe(node);
+        // eslint-disable-next-line
     }, [next]);
 
     return [setNext, lastRef];

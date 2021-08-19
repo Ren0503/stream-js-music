@@ -35,13 +35,11 @@ const ctaStyle = {
 
 export default function PromptButton({ to, name, styleName, onClick }) {
     return (
-        <>
-            to ?
+        to ?
             <a href={to}>
                 <button className="PromptButton no-outline" name={name} style={switchStyle(styleName)} >{name}</button>
             </a>
             :
             <button className="PromptButton no-outline" name={name} style={switchStyle(styleName)} onClick={onClick}>{name}</button>
-        </>
     )
 }

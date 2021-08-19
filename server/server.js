@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const express = require('express');
 const http = require('http');
+const morgan = require('morgan');
 var request = require("request");
 
 const randString = require('./utils/random');
@@ -15,7 +16,7 @@ if (process.env.NODE_ENV !== "production") {
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 const app = express();
 const server = http.createServer(app);
 
@@ -37,6 +38,7 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
 const redirect_uri = process.env.RE_URI;
 const front_end_uri = process.env.FRONT_URI;
@@ -44,7 +46,7 @@ const front_end_uri = process.env.FRONT_URI;
 const stateKey = "spotify_auth_state";
 const refreshKey = "refresh_key";
 const cookieOption = {
-    // Comment out the following 2 lines while in development for the authoriazation flow to work properly
+    // Comment out the following 2 lines while in development for the authorization flow to work properly
     // sameSite:'None',
     // secure: true
 };
@@ -75,7 +77,7 @@ app.get('/login', function (req, res) {
     const state = randString(16);
     res.cookie(stateKey, state);
 
-    //redirect to the spotify authentification page with the required parameters
+    //redirect to the spotify authentication page with the required parameters
     res.redirect(
         'https://accounts.spotify.com/authorize?' +
         qs.stringify({
@@ -175,4 +177,4 @@ app.get('/logout', (req, res) => {
     res.status(200).send('logged out');
 });
 
-server.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

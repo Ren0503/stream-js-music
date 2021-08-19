@@ -82,7 +82,7 @@ function App() {
       }
     }
     return () => {
-      cancelSource.cancelSource();
+      cancelSource.cancel();
       clearTimeout(timerRef.current);
     }
   }, []);

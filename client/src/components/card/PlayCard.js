@@ -27,7 +27,7 @@ const PlayCard = React.forwardRef(({ info, type }, ref) => {
 
     let image_url;
     try {
-        image_url = images[0].uri;
+        image_url = images[0].url;
     } catch {
         image_url = null;
     }

@@ -4,7 +4,6 @@ import axios from 'axios';
 import { TrackList } from 'components/track';
 import { PageBanner, PlayListFunctions } from 'components/shared';
 
-import putWithToken from 'services/putWithToken';
 import { TokenContext, UserContext } from 'context';
 import useTokenScroll from 'hooks/useTokenScroll';
 import reqWithToken from 'services/reqWithToken';

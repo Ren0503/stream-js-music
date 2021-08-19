@@ -11,12 +11,12 @@ const client_auth = (client_id, client_secret) => {
         };
 
         const authOptions = {
-            grant_type: 'client_credentials',
+            grant_type: 'client_credentials'
         };
 
         axios.post('https://accounts.spotify.com/api/token', qs.stringify(authOptions), config)
             .then((response) => res(response.data.access_token))
-            .catch((error) => rej(error));
+            .catch((error) => rej(error))
     });
 };
 

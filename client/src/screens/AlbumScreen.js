@@ -58,7 +58,7 @@ export default function AlbumScreen() {
         const [source, makeRequest] = makeAxiosRequest(`https://api.spotify.com/v1/albums/${id}`);
         if (id) {
             makeRequest()
-                .putWithToken((data) => {
+                .then((data) => {
                     const { album_type, name, artists, primary_color, tracks, images, release_date, uri } = data;
                     setBannerInfo(bannerInfo => ({ ...bannerInfo, album_type, name, user: artists, primary_color, images, release_date }));
                     setTracks(tracks.items);

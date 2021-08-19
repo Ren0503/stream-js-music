@@ -1,6 +1,7 @@
+import React, { useContext, useEffect, useState } from 'react';
+
 import { CollectionRow } from 'components/row';
 import { MessageContext } from 'context';
-import React, { useContext, useEffect, useState } from 'react';
 import makeAxiosRequest from 'services/makeAxiosRequest';
 import getLocale from 'utils/getLocale';
 
@@ -33,24 +34,27 @@ export default function HomeScreen() {
                 .catch((error) => setMessage(`ERROR: ${error}`));
             return null;
         });
+        // eslint-disable-next-line
     }, [collections]);
 
     useEffect(() => {
         setPlaylistsMap(playlistsMap => ({ ...playlistsMap, ...temp }));
+        // eslint-disable-next-line
     }, [temp]);
 
     return (
         <div className="page-content">
             <div className="pageContent">
-                <CollectionRow name='Uniquely Yours' id={null} playlists={[{
-                    id: '',
-                    to: '/tracks',
-                    description: '',
-                    name: 'Liked Songs',
-                    images: [{
-                        url: 'https://misc.scdn.co/liked-songs/liked-songs-300.png'
-                    }]
-                }]} />
+                <CollectionRow
+                    name='Uniquely Yours' id={null}
+                    playlists={[{
+                        id: '',
+                        to: '/tracks',
+                        description: '',
+                        name: 'Liked Songs',
+                        images: [{ url: 'https://misc.scdn.co/liked-songs/liked-songs-300.png' }]
+                    }]}
+                />
                 {
                     Object.entries(playlistsMap).map(([name, info]) => {
                         const { id, playlists } = info;

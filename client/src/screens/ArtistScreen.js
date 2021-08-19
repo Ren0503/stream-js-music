@@ -109,8 +109,10 @@ export default function ArtistScreen() {
                 setAppear((old) => [...old, ...appear]);
                 setCompilation((old) => [...old, ...compilation]);
                 setRelated(old => [...old, ...related]);
+                setLoading(false);
             } catch (error) {
                 console.log(error);
+                setLoading(false);
             }
         }
 
@@ -177,6 +179,7 @@ export default function ArtistScreen() {
             })
             .catch(error => setMessage(`ERROR: ${error}`));
     }
+    console.log(tracks);
 
     return (
         loading

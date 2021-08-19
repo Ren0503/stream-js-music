@@ -22,7 +22,6 @@ export default function generateContent(dataTip) {
     }
 }
 
-
 function TipContent({ title, tip }) {
     return (
         <div className="tipContent">

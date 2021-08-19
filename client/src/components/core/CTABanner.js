@@ -22,8 +22,8 @@ export default function CTABanner() {
                 }}>
                     This is a clone website intended to be an exercise in web application building - not for profit/commercial use. If you are looking for the real app go to open.spotify.com
                 </h3>
-                <PromptButton to='https://spotify.com/signup' name='Sign up free' styleName='CTA'/>
             </div>
+            <PromptButton to='https://spotify.com/signup' name='Sign up free' styleName='CTA'/>
         </div>
     );
 };

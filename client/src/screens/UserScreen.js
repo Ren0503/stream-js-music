@@ -51,7 +51,7 @@ export default function UserScreen({ query, setMessage }) {
             try {
                 const [userData, listData] = await Promise.all([requestUser(), requestList()]);
 
-                const { display_name, owner, followers, primary_color, image } = userData;
+                const { display_name, owner, followers, primary_color, images } = userData;
                 const { items, total, next } = listData;
                 setBannerInfo(bannerInfo => ({ ...bannerInfo, name: display_name, user: [owner], followers, primary_color, images, total }));
                 setPlayLists(items);

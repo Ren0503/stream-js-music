@@ -8,11 +8,11 @@ import useId from 'hooks/useId';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
 import makeAxiosRequest from 'services/makeAxiosRequest';
 import putWithToken from 'services/putWithToken';
-import { 
-    LoginContext, 
-    MessageContext, 
-    TokenContext, 
-    PlayContext 
+import {
+    LoginContext,
+    MessageContext,
+    TokenContext,
+    PlayContext
 } from 'context';
 
 export default function PlayListScreen({ playlists, refreshPlaylist }) {
@@ -35,7 +35,7 @@ export default function PlayListScreen({ playlists, refreshPlaylist }) {
     const [tracks, setTracks] = useState([]);
     const [like, setLike] = useState(false);
     const [uri, setUri] = useState('');
-    const [setNext, lastRef] = useInfiniteScroll(setPlayLists);
+    const [setNext, lastRef] = useInfiniteScroll(setTracks);
     const source = axios.CancelToken.source();
 
     useEffect(() => {
@@ -59,7 +59,7 @@ export default function PlayListScreen({ playlists, refreshPlaylist }) {
                 .then((data) => {
                     const { name, description, owner, followers, primary_color, tracks, images, uri } = data;
                     setBannerInfo(bannerInfo => ({ ...bannerInfo, name, description, user: [owner], followers, primary_color, images }));
-                    setTracks(tracks.items.marginTop((track) => track.track));
+                    setTracks(tracks.items.map((track) => track.track));
                     setNext(tracks.next);
                     setUri(uri);
                     setLoading(false);
@@ -138,12 +138,12 @@ export default function PlayListScreen({ playlists, refreshPlaylist }) {
     return (
         loading
             ? <Loading />
-            : <div className='listPage' style={{ display: playLists.length === 0 ? 'none' : 'block' }}>
+            : <div className='listPage' style={{ display: `${tracks.length === 0 ? 'none' : 'block'}` }}>
                 <PageBanner pageTitle='playlist' bannerInfo={bannerInfo} />
                 <div className="playListContent">
                     <div className="playListOverlay" style={{ backgroundColor: `${bannerInfo.primary_color}` }}></div>
                     <PlayListFunctions onFollow={followPlaylist} follow={like} setMessage={setMessage} playContext={playContext} />
-                    <div className="page-content" >
+                    <div className="page-content">
                         <TrackList ref={lastRef} tracks={tracks} playContextTrack={playContextTrack} />
                     </div>
                 </div>

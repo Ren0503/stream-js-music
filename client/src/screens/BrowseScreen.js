@@ -6,11 +6,11 @@ export default function BrowseScreen() {
     const [genre, setGenre] = useState([]);
 
     useEffect(() => {
-        const [source, makeRequest] = makeAxiosRequest('https://api.spotify.com/v1/browse/categories?limit=50');
+        const [source, makeRequest] = makeAxiosRequest('https://api.spotify.com/v1/browse/categories?limit=50')
 
         makeRequest()
             .then((data) => {
-                setGenre(data.catagories.items);
+                setGenre(data.categories.items);
             })
             .catch((error) => console.log(error));
 
@@ -20,7 +20,7 @@ export default function BrowseScreen() {
     return (
         <div className="page-content">
             <div className="browsePage">
-                <PageTitle name="Browse All"/>
+                <PageTitle name="Browse All" />
                 <div className="browseGrid">
                     {genre.map((genre) => {
                         return <BrowseCard key={genre.id} info={genre} />

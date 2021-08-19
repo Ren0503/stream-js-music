@@ -28,7 +28,7 @@ export default function SearchRow({ title, type, query }) {
         return () => source.cancel();
     }, [formatedQuery, type])
     return (
-        <div className='CollectionRow' style={{ display: result.length === 0 ? 'none' : 'grid' }}>
+        <div className='CollectionRow' style={{ display: results.length === 0 ? 'none' : 'grid' }}>
             <SearchRowTitle title={title} />
             <SearchRowGrid type={type} info={results} />
         </div>

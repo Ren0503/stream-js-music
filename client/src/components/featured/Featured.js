@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
+
+import PageContent from './PageContent';
 import CollectionNav from './CollectionNav';
 import HeaderBar from './HeaderBar';
 import HistoryNav from './HistoryNav';
@@ -30,6 +32,8 @@ export default function Featured(props) {
 
                 {loggedIn ? <UserInfo /> : <UserPrompt />}
             </HeaderBar>
+
+            <PageContent query={query} {...props} />
         </div>
     );
 };
