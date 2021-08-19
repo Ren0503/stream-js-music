@@ -70,4 +70,4 @@
 
 |                                        Artist                                        |                                        Album                                        |                                        Playlist                                        |
 | :--------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
-| ![](https://github.com/Ren0503/stream-js-music/blob/master/client/src/assets/screenshots/artist.png) | ![](https://github.com/Ren0503/stream-js-music/blob/master/client/src/assets/screenshots/album.png) | ![](https://github.com/Ren0503/stream-js-music/blob/master/client/src/assets/screenshots/playlist.png) |
+| ![](https://github.com/Ren0503/stream-js-music/blob/master/client/src/assets/screenshots/artist.png) | ![](https://github.com/Ren0503/stream-js-music/blob/master/client/src/assets/screenshots/album.png) | ![](https://github.com/Ren0503/stream-js-music/blob/master/client/src/assets/screenshots/playlists.png) |
